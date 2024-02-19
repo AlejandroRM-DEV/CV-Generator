@@ -4,7 +4,7 @@ import { produce } from 'immer';
 const useStore = create((set) => ({
   cv: {
     name: 'Fernando Ramírez Muñoz',
-    email: 'john.doe@email.com',
+    email: 'licenciadofer@gmail.com',
     phone: '33-1436-5921',
     location: 'Tlaquepaque, Jalisco, México',
     about:
@@ -38,7 +38,7 @@ const useStore = create((set) => ({
         jobTitle: 'Técnico Jurisdiccional "Auxiliar de Archivo"',
         company:
           'Segunda Ponencia de la Tercera Sala del Tribunal Federal de Justicia Administrativa',
-        location: 'Zapopan, Jalisco',
+        location: 'Guadalajara, Jalisco',
         startDate: 'ENE 2024',
         endDate: 'FEB 2024',
         description: `1. Integrar acuerdos a los expedientes, esto es, perforar, coser y foliar.
@@ -53,9 +53,9 @@ const useStore = create((set) => ({
       {
         jobTitle: 'Asesor legal',
         company: 'Independiente ',
-        location: 'Jalisco Y Zacatecas',
-        startDate: 'SEP 2024',
-        endDate: 'PRESENTE',
+        location: 'Jalisco y Zacatecas',
+        startDate: 'SEP 2013',
+        endDate: 'DIC 2023',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
       {

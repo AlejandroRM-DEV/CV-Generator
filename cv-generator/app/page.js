@@ -1,24 +1,64 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PDFViewer } from '@react-pdf/renderer';
-import { Form, Input, Space, Button, Collapse, Select } from 'antd';
+import { Form, Input, DatePicker, Button, Collapse, Select } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import Original from '@/components/documents/Original';
 import useStore from '@/storage/store';
+import daysjs from 'dayjs';
 
 export default function Home() {
   const [form] = Form.useForm();
   const { cv, updateData } = useStore();
 
   const handleOnValuesChange = (_, allValues) => {
-    console.log(allValues);
-    //updateData(allValues);
+    console.log(JSON.parse(JSON.stringify(allValues)));
+    const values = {
+      ...allValues,
+      experience: allValues.experience?.map((exp) => ({
+        ...exp,
+        startDate: exp?.startDate.format('MMM YYYY').toUpperCase(),
+        endDate: exp?.endDate.format('MMM YYYY').toUpperCase(),
+      })),
+      education: allValues.education?.map((edu) => ({
+        ...edu,
+        startDate: edu?.startDate.format('MMM YYYY').toUpperCase(),
+        endDate: edu?.endDate.format('MMM YYYY').toUpperCase(),
+      })),
+      continuosEducation: allValues.continuosEducation?.map((edu) => ({
+        ...edu,
+        startDate: edu?.startDate.format('MMM YYYY').toUpperCase(),
+        endDate: edu?.endDate.format('MMM YYYY').toUpperCase(),
+      })),
+    };
+    updateData(JSON.parse(JSON.stringify(values)));
   };
+
+  useEffect(() => {
+    form.setFieldsValue({
+      ...cv,
+      experience: cv.experience.map((exp) => ({
+        ...exp,
+        startDate: daysjs(exp?.startDate),
+        endDate: daysjs(exp?.endDate),
+      })),
+      education: cv.education.map((edu) => ({
+        ...edu,
+        startDate: daysjs(edu?.startDate),
+        endDate: daysjs(edu?.endDate),
+      })),
+      continuosEducation: cv.continuosEducation.map((edu) => ({
+        ...edu,
+        startDate: daysjs(edu?.startDate),
+        endDate: daysjs(edu?.endDate),
+      })),
+    });
+  }, [cv]);
 
   return (
     <div className="flex h-dvh">
       <aside className="basis-1/3 overflow-auto">
-        <h1 className="text-2xl font-bold m-4 text-center">CV Generator</h1>
+        <h1 className="text-2xl font-bold m-4 text-center">Generador de CV</h1>
         <Form
           form={form}
           layout="horizontal"
@@ -29,7 +69,6 @@ export default function Home() {
           wrapperCol={{
             span: 18,
           }}
-          initialValues={cv}
           onValuesChange={handleOnValuesChange}
         >
           <Collapse
@@ -138,30 +177,30 @@ export default function Home() {
                         {fields.map(({ key, name, ...restField }) => (
                           <React.Fragment key={key}>
                             <Form.Item {...restField} name={[name, 'jobTitle']} label="Puesto">
-                              <Input placeholder="Puesto" />
+                              <Input />
                             </Form.Item>
                             <Form.Item {...restField} name={[name, 'company']} label="Empresa">
-                              <Input placeholder="Empresa" />
+                              <Input />
                             </Form.Item>
                             <Form.Item {...restField} name={[name, 'location']} label="Ubicación">
-                              <Input placeholder="Ubicación" />
+                              <Input />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'startDate']}
                               label="Fecha de inicio"
                             >
-                              <Input placeholder="Fecha de inicio" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Form.Item {...restField} name={[name, 'endDate']} label="Fecha de fin">
-                              <Input placeholder="Fecha de fin" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'description']}
                               label="Descripción"
                             >
-                              <Input.TextArea placeholder="Descripción" />
+                              <Input.TextArea autoSize />
                             </Form.Item>
                             <Button
                               type="dashed"
@@ -194,24 +233,24 @@ export default function Home() {
                         {fields.map(({ key, name, ...restField }) => (
                           <React.Fragment key={key}>
                             <Form.Item {...restField} name={[name, 'degree']} label="Título">
-                              <Input placeholder="Título" />
+                              <Input />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'institution']}
                               label="Institución"
                             >
-                              <Input placeholder="Institución" />
+                              <Input />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'startDate']}
                               label="Fecha de inicio"
                             >
-                              <Input placeholder="Fecha de inicio" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Form.Item {...restField} name={[name, 'endDate']} label="Fecha de fin">
-                              <Input placeholder="Fecha de fin" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Button
                               type="dashed"
@@ -244,24 +283,24 @@ export default function Home() {
                         {fields.map(({ key, name, ...restField }) => (
                           <React.Fragment key={key}>
                             <Form.Item {...restField} name={[name, 'course']} label="Curso">
-                              <Input placeholder="Curso" />
+                              <Input />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'institution']}
                               label="Institución"
                             >
-                              <Input placeholder="Institución" />
+                              <Input />
                             </Form.Item>
                             <Form.Item
                               {...restField}
                               name={[name, 'startDate']}
                               label="Fecha de inicio"
                             >
-                              <Input placeholder="Fecha de inicio" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Form.Item {...restField} name={[name, 'endDate']} label="Fecha de fin">
-                              <Input placeholder="Fecha de fin" />
+                              <DatePicker picker="month" />
                             </Form.Item>
                             <Button
                               type="dashed"
