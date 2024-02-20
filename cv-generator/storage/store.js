@@ -116,7 +116,7 @@ const useStore = create((set) => ({
       },
       {
         course: 'Diplomado en Impuestos y su aplicación contable',
-        institution: 'Universidad de Guadalajara- CUCEA',
+        institution: 'Universidad de Guadalajara - CUCEA',
         startDate: 'JUL 2015',
         endDate: 'JUL 2015',
       },
