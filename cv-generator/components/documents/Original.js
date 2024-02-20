@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import { PDFViewer } from '@react-pdf/renderer';
 import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 
 const chunkSubstr = (str, size) => {
@@ -119,75 +119,77 @@ const styles = StyleSheet.create({
 
 const Original = ({ cv }) => {
   return (
-    <Document>
-      <Page size="letter" style={styles.page}>
-        <View style={styles.aside}>
-          <Text style={styles.name}>{cv?.name}</Text>
-          <Text style={styles.sectionHeader}>CONTACTO</Text>
-          <Text>{cv?.email}</Text>
-          <Text>{cv?.phone}</Text>
-          <Text>{cv?.location}</Text>
-          <Text style={styles.sectionHeader}>HABILIDADES PROFESIONALES</Text>
-          {cv?.professionalSkills.map((skill, index) => (
-            <Text key={index}>- {skill}</Text>
-          ))}
-          <Text style={styles.sectionHeader}>HABILIDADES PERSONALES</Text>
-          {cv?.personalSkills.map((skill, index) => (
-            <Text key={index}>- {skill}</Text>
-          ))}
-          <Text style={styles.sectionHeader}>IDIOMAS</Text>
-          {cv?.languages.map((language, index) => (
-            <Text key={index}>
-              {language.name} - {language.level}
-            </Text>
-          ))}
-        </View>
-        <View style={styles.main}>
-          <Text style={styles.sectionHeader}>SOBRE MÍ</Text>
-          <Text style={styles.paragraph}>{cv?.about}</Text>
-          <Text style={styles.sectionHeader}>EXPERIENCIA</Text>
-          {cv?.experience.map((job, index) => (
-            <View key={index}>
-              <Text style={styles.sectionTitle}>
-                <Text style={styles.sectionTitleHighlight}>{job?.jobTitle}</Text>
-                {' | '}
-                {job?.company}
+    <PDFViewer className="h-full w-full">
+      <Document>
+        <Page size="letter" style={styles.page}>
+          <View style={styles.aside}>
+            <Text style={styles.name}>{cv?.name}</Text>
+            <Text style={styles.sectionHeader}>CONTACTO</Text>
+            <Text>{cv?.email}</Text>
+            <Text>{cv?.phone}</Text>
+            <Text>{cv?.location}</Text>
+            <Text style={styles.sectionHeader}>HABILIDADES PROFESIONALES</Text>
+            {cv?.professionalSkills.map((skill, index) => (
+              <Text key={index}>- {skill}</Text>
+            ))}
+            <Text style={styles.sectionHeader}>HABILIDADES PERSONALES</Text>
+            {cv?.personalSkills.map((skill, index) => (
+              <Text key={index}>- {skill}</Text>
+            ))}
+            <Text style={styles.sectionHeader}>IDIOMAS</Text>
+            {cv?.languages.map((language, index) => (
+              <Text key={index}>
+                {language.name} - {language.level}
               </Text>
-              <Text style={styles.sectionSubTitle}>
-                {job?.startDate} - {job?.endDate} | {job?.location}
-              </Text>
-              <Text style={styles.paragraph}>{job?.description}</Text>
-            </View>
-          ))}
-          <Text style={styles.sectionHeader}>EDUCACIÓN</Text>
-          {cv?.education.map((degree, index) => (
-            <View key={index}>
-              <Text style={styles.sectionTitle}>
-                <Text style={styles.sectionTitleHighlight}>{degree?.degree}</Text>
-                {' | '}
-                {degree?.institution}
-              </Text>
-              <Text style={styles.sectionSubTitle}>
-                {degree?.startDate} - {degree?.endDate}
-              </Text>
-            </View>
-          ))}
-          <Text style={styles.sectionHeader}>EDUCACIÓN CONTINUA</Text>
-          {cv?.continuosEducation.map((course, index) => (
-            <View key={index}>
-              <Text style={styles.sectionTitle}>
-                <Text style={styles.sectionTitleHighlight}>{course?.course}</Text>
-                {' | '}
-                {course?.institution}
-              </Text>
-              <Text style={styles.sectionSubTitle}>
-                {course?.startDate} - {course?.endDate}
-              </Text>
-            </View>
-          ))}
-        </View>
-      </Page>
-    </Document>
+            ))}
+          </View>
+          <View style={styles.main}>
+            <Text style={styles.sectionHeader}>SOBRE MÍ</Text>
+            <Text style={styles.paragraph}>{cv?.about}</Text>
+            <Text style={styles.sectionHeader}>EXPERIENCIA</Text>
+            {cv?.experience.map((job, index) => (
+              <View key={index}>
+                <Text style={styles.sectionTitle}>
+                  <Text style={styles.sectionTitleHighlight}>{job?.jobTitle}</Text>
+                  {' | '}
+                  {job?.company}
+                </Text>
+                <Text style={styles.sectionSubTitle}>
+                  {job?.startDate} - {job?.endDate} | {job?.location}
+                </Text>
+                <Text style={styles.paragraph}>{job?.description}</Text>
+              </View>
+            ))}
+            <Text style={styles.sectionHeader}>EDUCACIÓN</Text>
+            {cv?.education.map((degree, index) => (
+              <View key={index}>
+                <Text style={styles.sectionTitle}>
+                  <Text style={styles.sectionTitleHighlight}>{degree?.degree}</Text>
+                  {' | '}
+                  {degree?.institution}
+                </Text>
+                <Text style={styles.sectionSubTitle}>
+                  {degree?.startDate} - {degree?.endDate}
+                </Text>
+              </View>
+            ))}
+            <Text style={styles.sectionHeader}>EDUCACIÓN CONTINUA</Text>
+            {cv?.continuosEducation.map((course, index) => (
+              <View key={index}>
+                <Text style={styles.sectionTitle}>
+                  <Text style={styles.sectionTitleHighlight}>{course?.course}</Text>
+                  {' | '}
+                  {course?.institution}
+                </Text>
+                <Text style={styles.sectionSubTitle}>
+                  {course?.startDate} - {course?.endDate}
+                </Text>
+              </View>
+            ))}
+          </View>
+        </Page>
+      </Document>
+    </PDFViewer>
   );
 };
 

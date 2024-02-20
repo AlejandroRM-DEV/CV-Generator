@@ -1,9 +1,8 @@
 'use client';
 import React, { useEffect } from 'react';
-import { PDFViewer } from '@react-pdf/renderer';
+import dynamic from 'next/dynamic';
 import { Form, Input, DatePicker, Button, Collapse, Select } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import Original from '@/components/documents/Original';
 import useStore from '@/storage/store';
 import daysjs from 'dayjs';
 
@@ -55,9 +54,14 @@ export default function Home() {
     });
   }, [cv]);
 
+  const Original = dynamic(() => import('@/components/documents/Original'), {
+    loading: () => <></>,
+    ssr: false,
+  });
+
   return (
-    <div className="flex h-dvh">
-      <aside className="basis-1/3 overflow-auto">
+    <div className="flex flex-col md:flex-row md:h-dvh">
+      <aside className="md:basis-1/3 overflow-auto">
         <h1 className="text-2xl font-bold m-4 text-center">Generador de CV</h1>
         <Form
           form={form}
@@ -327,10 +331,8 @@ export default function Home() {
           />
         </Form>
       </aside>
-      <main className="basis-2/3 flex justify-center items-center">
-        <PDFViewer className="h-full w-full">
-          <Original cv={cv} />
-        </PDFViewer>
+      <main className="md:basis-2/3 flex justify-center items-center">
+        <Original cv={cv} />
       </main>
     </div>
   );
