@@ -56,7 +56,8 @@ const useStore = create((set) => ({
         location: 'Jalisco y Zacatecas',
         startDate: 'SEP 2013',
         endDate: 'DIC 2023',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description:
+          'Proporcionar asesoramiento jurídico a clientes en asuntos relacionados con el derecho de familia, como divorcio voluntario, guardia y custodia de menores, pensión alimenticia, patria potestad, sucesiones, entre otros.',
       },
       {
         jobTitle: 'Asesor colaborador ',
@@ -64,7 +65,8 @@ const useStore = create((set) => ({
         location: 'Jerez, Zacatecas',
         startDate: 'FEB 2013',
         endDate: 'AGO 2013',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description:
+          'Realizar trabajos de investigación y seguimiento de juicios en materia civil, familiar, penal y laboral que me fueron encomendados.',
       },
     ],
     education: [

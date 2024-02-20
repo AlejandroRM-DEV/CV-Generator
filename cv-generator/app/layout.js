@@ -6,8 +6,10 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'CV Generator',
-  description: 'A simple CV generator',
+  title: 'Generador de CV',
+  description: 'Generador de CV simple y rápido',
+  author: 'Alejandro Ramírez Muñoz',
+  keywords: 'cv, curriculum, vitae',
 };
 
 export default function RootLayout({ children }) {
