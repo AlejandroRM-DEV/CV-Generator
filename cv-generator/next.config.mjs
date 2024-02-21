@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: false
+  swcMinify: false,
+  experimental: {
+    serverComponentsExternalPackages: ['@react-pdf/renderer'],
+  }
 };
 
 export default nextConfig;
