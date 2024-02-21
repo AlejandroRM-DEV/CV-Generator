@@ -48,7 +48,8 @@ const useStore = create((set) => ({
 5. Recibir oficios y ordenarlos según el año del número de expediente en carpetas.
 6. Prestar expedientes a Actuaría Común previo registro en la libreta correspondiente para tener un registro y un control.
 7. Sacar términos legales para la continuidad del juicio contencioso administrativo.
-8. Crear carpertillas nuevas de Recursos de Revisión que interponían ya sea la parte actora o parte demandada ante los Tribunales Colegiados de Circuito para tener un registro interno.`,
+8. Crear carpertillas nuevas de Recursos de Revisión que interponían ya sea la parte actora o parte demandada ante los Tribunales Colegiados de Circuito para tener un registro interno.
+`,
       },
       {
         jobTitle: 'Asesor legal',
@@ -56,8 +57,12 @@ const useStore = create((set) => ({
         location: 'Jalisco y Zacatecas',
         startDate: 'SEP 2013',
         endDate: 'DIC 2023',
-        description:
-          'Proporcionar asesoramiento jurídico a clientes en asuntos relacionados con el derecho de familia, como divorcio voluntario, guardia y custodia de menores, pensión alimenticia, patria potestad, sucesiones, entre otros.',
+        description: `1. Brindar asesoramiento jurídico en materia laboral respecto de un finiquito al momento de dar por terminada la relación de trabajo ya sea de manera voluntaria o por despido injustificado.
+2. Orientación legal sobre los derechos y obligaciones de distintos contratos cómo compraventa, donación y arrendamiento.
+3. Asesoramiento jurídico en materia de pensión alimenticia y que conceptos abarca.
+4. Asesoría jurídica de los aspectos patrimoniales del matrimonio.
+5. Asesoramiento legal a otros profesionistas para el legal desempeño de su trabajo.
+6. Asesoramiento legal respecto del proceso de un juicio sucesorio intestamentario.`,
       },
       {
         jobTitle: 'Asesor colaborador ',
@@ -65,8 +70,8 @@ const useStore = create((set) => ({
         location: 'Jerez, Zacatecas',
         startDate: 'FEB 2013',
         endDate: 'AGO 2013',
-        description:
-          'Realizar trabajos de investigación y seguimiento de juicios en materia civil, familiar, penal y laboral que me fueron encomendados.',
+        description: `1. Realizar trabajos de investigación y seguimiento de juicios en materia civil, familiar, penal y laboral que me fueron encomendados.
+2. Preparar legalmente a clientes del despacho para desahogo de prueba confesional en juicios familiares.`,
       },
     ],
     education: [
