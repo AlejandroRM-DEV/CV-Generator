@@ -139,7 +139,7 @@ const Original = ({ cv }) => {
             <Text style={styles.sectionHeader}>IDIOMAS</Text>
             {cv?.languages.map((language, index) => (
               <Text key={index}>
-                {language.name} - {language.level}
+                {language?.name} - {language?.level}
               </Text>
             ))}
           </View>
