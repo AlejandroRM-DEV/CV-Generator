@@ -23,6 +23,24 @@ const useStore = create((set) => ({
         });
       })
     ),
+  reset: () =>
+    set(
+      produce((draft) => {
+        draft.cv = {
+          name: '',
+          email: '',
+          phone: '',
+          location: '',
+          about: '',
+          languages: [],
+          professionalSkills: [],
+          personalSkills: [],
+          experience: [],
+          education: [],
+          continuosEducation: [],
+        };
+      })
+    ),
 }));
 
 export default useStore;

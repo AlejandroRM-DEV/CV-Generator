@@ -4,11 +4,12 @@ import dynamic from 'next/dynamic';
 import { Form, Input, DatePicker, Button, Collapse, Select } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import useStore from '@/storage/store';
+import { SiBuymeacoffee } from 'react-icons/si';
 import daysjs from 'dayjs';
 
 export default function Home() {
   const [form] = Form.useForm();
-  const { cv, updateData } = useStore();
+  const { cv, updateData, reset } = useStore();
 
   const handleOnValuesChange = (_, allValues) => {
     console.log(JSON.parse(JSON.stringify(allValues)));
@@ -63,6 +64,19 @@ export default function Home() {
     <div className="flex flex-col md:flex-row md:h-dvh">
       <aside className="md:basis-1/3 overflow-auto">
         <h1 className="text-2xl font-bold m-4 text-center">Generador de CV</h1>
+        <div className="flex justify-between items-center px-3 pb-3">
+          <Button type="primary" onClick={reset}>
+            Limpiar
+          </Button>
+          <a
+            href="https://www.buymeacoffee.com/alejandrorm"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="px-2 py-1 flex items-center gap-1 bg-yellow-300 rounded "
+          >
+            <SiBuymeacoffee /> Buy me a coffee
+          </a>
+        </div>
         <Form
           form={form}
           layout="horizontal"
