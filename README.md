@@ -23,16 +23,14 @@ cd cv-generator
 npm install
 ```
 
-## Tech Stack
-
-**Client:** React, Next.js, TailwindCSS
-
 ## Roadmap
 
-- Save json with data
+- Save and load json with data
+- Enable/disable sections
 - i18n (English, Spanish)
 - Mobile render
 - New templates
+- Reorder sections
 
 ## Contributing
 
