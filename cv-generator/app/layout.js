@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Inter } from 'next/font/google';
 import { ConfigProvider } from 'antd';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         >
           <AntdRegistry>{children}</AntdRegistry>
         </ConfigProvider>
+        <Analytics />
       </body>
     </html>
   );
